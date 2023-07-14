@@ -2,7 +2,6 @@ const { Category } = require('../models');
 
 module.exports = async (body) => {
   try {
-    console.log(body);
     const nameCreated = await Category.create(body);
     if (!body.name) return [{ status: 400 }, { message: '"name" is required' }];
     return [{ status: 201 }, nameCreated];
