@@ -2,7 +2,9 @@ const express = require('express');
 const { loginServices,
   userCreateServices,
   findAllServices,
-  findAllByIdServices } = require('./services');
+  findAllByIdServices,
+  categoryCreateServices,
+ } = require('./services');
 const loginMiddleware = require('./middlewares/login.midleware');
 const userCreateMiddleware = require('./middlewares/userCreate.middleware');
 const tokenValidateMiddleware = require('./middlewares/tokenValidate.middleware');
@@ -22,6 +24,8 @@ app.post('/login', loginMiddleware, loginServices);
 app.post('/user', userCreateMiddleware, userCreateServices);
 app.get('/user', tokenValidateMiddleware, findAllServices);
 app.get('/user/:id', tokenValidateMiddleware, findAllByIdServices);
+
+app.post('/categories', tokenValidateMiddleware, categoryCreateServices);
 
 // É importante exportar a constante `app`,
 // para que possa ser utilizada pelo arquivo `src/server.js`
