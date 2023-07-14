@@ -1,13 +1,10 @@
 const parseHash = require('../utils/parseHash');
 
-module.exports = async (req, res) => {
+module.exports = async (email) => {
   try {
-    const { email } = req.body;
-
     const token = parseHash(email);
-    
-    return res.status(200).json({ token });
+    return [{ status: 200 }, { token }];
   } catch (err) {
-    return res.status(500).json({ message: 'Internal Error', error: err.message });
+    return [{ status: 200 }, { message: 'Internal Error', error: err.message }];
   }
 };
