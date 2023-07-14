@@ -30,5 +30,5 @@ app.post('/categories', tokenValidateMiddleware, categoryCreateServices);
 app.get('/categories', tokenValidateMiddleware, categoryListAllServices);
 
 // É importante exportar a constante `app`,
-// para que possa ser utilizada pelo arquivo `src/server.js`
+// para que possa ser utilizada pelo arquivo `src/server.s`
 module.exports = app;
