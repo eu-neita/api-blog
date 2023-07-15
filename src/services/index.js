@@ -4,6 +4,7 @@ const findAllServices = require('./findAll.services');
 const findAllByIdServices = require('./findAllById.services');
 const categoryCreateServices = require('./categoryCreate.services');
 const categoryListAllServices = require('./categoryListAll.services');
+const postBlogServices = require('./postBlog.services');
 
 module.exports = { loginServices,
    userCreateServices,
@@ -11,4 +12,5 @@ module.exports = { loginServices,
   findAllByIdServices,
   categoryCreateServices,
   categoryListAllServices,
+  postBlogServices,
 };

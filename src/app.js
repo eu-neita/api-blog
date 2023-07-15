@@ -5,10 +5,12 @@ const { loginServices,
   findAllByIdServices,
   categoryCreateServices,
   categoryListAllServices,
+  postBlogServices,
  } = require('./services');
 const loginMiddleware = require('./middlewares/login.midleware');
 const userCreateMiddleware = require('./middlewares/userCreate.middleware');
 const tokenValidateMiddleware = require('./middlewares/tokenValidate.middleware');
+const postBlogMiddleware = require('./middlewares/postBlog.middlewares');
 
 // ...
 
@@ -28,6 +30,8 @@ app.get('/user/:id', tokenValidateMiddleware, findAllByIdServices);
 
 app.post('/categories', tokenValidateMiddleware, categoryCreateServices);
 app.get('/categories', tokenValidateMiddleware, categoryListAllServices);
+
+app.post('/post', tokenValidateMiddleware, postBlogMiddleware, postBlogServices);
 
 // É importante exportar a constante `app`,
 // para que possa ser utilizada pelo arquivo `src/server.s`
